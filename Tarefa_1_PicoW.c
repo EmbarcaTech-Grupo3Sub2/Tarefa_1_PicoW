@@ -5,6 +5,8 @@
 #define GREEN_LED 11    // Definição dos LEDs
 #define BLUE_LED 12
 
+#define BUZZER 21    // Definição do buzzer
+
 const uint col[4] = {4, 3, 2, 1};   // Definição dos pinos do teclado
 const uint rw[4] = {8, 7, 6, 5};    // com as portas GPIO
 
