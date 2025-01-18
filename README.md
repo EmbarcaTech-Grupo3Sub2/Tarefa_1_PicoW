@@ -1,4 +1,4 @@
-#  Controle de pinos GPIO com o emprego de um teclado matricial.
+# Controle de pinos GPIO com o emprego de um teclado matricial.
 
 ## Descrição
 Com o auxílio do simulador de eletrônica Wokwi, utilize um teclado matricial 4x4 (ilustrado na Figura 1) para controlar determinados pinos GPIO do microcontrolador RP2040, presente na placa de desenvolvimento Raspberry Pi Pico W. Para esta atividade, realize o acionamento de 03 LEDs (tipo RGB), juntamente com o controle do sinal sonoro de um buzzer. Nesta prática, será necessário simular os seguintes componentes:
@@ -13,50 +13,30 @@ Com o auxílio do simulador de eletrônica Wokwi, utilize um teclado matricial 4
 As estratégias de acionamento dos LEDs e de geração do sinal elétrico do buzzer ficarão a critério da equipe de desenvolvimento. Contudo, em caráter sugestivo, é apresentado um vídeo com uma prática de simulação associada a esta tarefa, onde da letra A até C, aciona cada uma das leds separadamente, e ao apertar na letra D todas ledes são acionadas. O buzzer é acionado ao apertar no botão # do teclado. No caso desta atividade, em virtude de o teclado matricial não ser um periférico presente na placa BitDogLab, não é necessária/obrigatória a realização de um experimento com hardware real. 
 
 
+## Como compilar
+Para compilar o programa, utilize um compilador C, e rode o código para geração do arquivo `.uf2` e `.elf`. Segue um exemplo:
 
-## Estrutura do Projeto
-O projeto está dividido em arquivos individuais para cada tipo de unidade:
+![botao compilador](photos_readme\compilador.png)
 
-    ├── libs
-        │ ├── comprimento.c
-        │ ├── massa.c
-        │ ├── volume.c
-        │ ├── temperatura.c
-        │ ├── velocidade.c
-        │ ├── eletricidade.c
-        │ ├── area.c
-        │ ├── tempo.c
-        │ ├── armazenamento.c
-        │ ├── IU.c
-    └── main.c
-    └── README.md
+## Como executar
+Após a compilação, execute o simulador Wokwi clicando no arquivo `diagram.json`:
+![circuito](photos_readme\circuito.png)
 
-## Como Compilar
-Para compilar o programa, utilize um compilador C, como `gcc`. Segue um exemplo:
 
-```bash
-gcc -o conversor main.c
-```
+Para testar, só clicar no play e explorar o circutio.
 
-## Como Executar
-Após a compilação, execute o programa com o comando:
-
-```bash
-./conversor
-```
-
-O menu interativo será exibido, permitindo ao usuário selecionar o tipo de unidade para conversão.
-
-## Exemplo de Uso
-1. Escolha o tipo de unidade no menu principal (ex: 1 para comprimento).
-2. Informe a conversão desejada (ex: 1 para Metros --> Centímetros)
-3. Insira o valor a ser convertido.
-4. O programa exibirá o resultado da conversão.
+## Exemplo de uso
+1. Clique no botão A e a luz acenderá
+2. Clique no botão B e a luz acenderá
+3. Clique no botão C e a luz acenderá
+4. Clique no botão D e a luz acenderá
+5. Clique no botão # e a luz acenderá
 
 ## Requisitos
 - Compilador C (gcc ou equivalente).
 - Sistema operacional compatível com programas C.
 - Extensão Raspberry Pi Pico 
+- Wokwi conectado no VS Code
 
 ## Desenvolvedores
 - [Lucas Luige](https://github.com/lluigecm)
