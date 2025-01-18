@@ -81,6 +81,30 @@ char get_key()
         return ' ';
 }
 
+void action(char key){
+    switch (key)
+    {
+    case 'A':
+        printf("acende led vermelho\n");
+        //chama função que acende o led vermelho
+        break;
+    
+    case 'B':
+        printf("acende led azul\n");
+        //chama função que acende o led azul
+        break;
+    case 'C':
+        printf("acende led verde\n");
+        //chama função que acende o led verde
+        break;
+    case 'D':
+        printf("acende os tres\n");
+        //chama a função que acende os três leds
+        break;
+    
+    }
+}
+
 int main()
 {
     stdio_init_all(); // Para imprimir na serial
@@ -88,7 +112,7 @@ int main()
 
     while (1)
     {
-        char key = get_key(); // TECLA IDENTIFICADA
+        action(get_key());
 
         sleep_ms(10);
     }
