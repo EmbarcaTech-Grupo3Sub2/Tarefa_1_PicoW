@@ -88,29 +88,7 @@ int main()
 
     while (1)
     {
-        char key = get_key();
-
-        // =====  ADICIONAR FUNÇÕES PARA AS TECLAS AQUI ====
-        // INICIO TESTE DE TECLA A, B, C
-        switch (key)
-        {
-        case 'A':
-            gpio_put(RED_LED, 1);
-            sleep_ms(1000);
-            gpio_put(RED_LED, 0);
-            break;
-        case 'B':
-            gpio_put(GREEN_LED, 1);
-            sleep_ms(1000);
-            gpio_put(GREEN_LED, 0);
-            break;
-        case 'C':
-            gpio_put(BLUE_LED, 1);
-            sleep_ms(1000);
-            gpio_put(BLUE_LED, 0);
-            break;
-        }
-        // FIM DO TESTE
+        char key = get_key(); // TECLA IDENTIFICADA
 
         sleep_ms(10);
     }
