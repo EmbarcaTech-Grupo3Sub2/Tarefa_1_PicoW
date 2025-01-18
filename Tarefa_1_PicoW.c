@@ -20,6 +20,22 @@ const char keysMap[16] = {
 // Configurar os pinos GPIO para entrada/saída
 void setup_pins()
 {
+    gpio_init(RED_LED);
+    gpio_set_dir(RED_LED, GPIO_OUT);
+    gpio_put(RED_LED, 0);
+
+    gpio_init(GREEN_LED);
+    gpio_set_dir(GREEN_LED, GPIO_OUT);
+    gpio_put(GREEN_LED, 0);
+
+    gpio_init(BLUE_LED);
+    gpio_set_dir(BLUE_LED, GPIO_OUT);
+    gpio_put(BLUE_LED, 0);
+
+    gpio_init(BUZZER);
+    gpio_set_dir(BUZZER, GPIO_OUT);
+    gpio_put(BUZZER, 0);
+
     for (int i = 0; i < 4; i++)
     {
         // Configura a linha para saida e deixa desativado
@@ -54,20 +70,15 @@ char get_key()
         }
         gpio_put(rw[r], 1);
     }
-    if (res == ' ')
+    if (res == ' ' || res != lastKey)
     {
         lastKey = res;
-        return res;
-    }
-    else if (res != lastKey)
-    {
-        lastKey = res;
+        if (res != ' ')
+            printf("Tecla: %c\n", res);
         return res;
     }
     else
-    {
         return ' ';
-    }
 }
 
 int main()
@@ -78,10 +89,29 @@ int main()
     while (1)
     {
         char key = get_key();
-        if (true || key != ' ')
+
+        // =====  ADICIONAR FUNÇÕES PARA AS TECLAS AQUI ====
+        // INICIO TESTE DE TECLA A, B, C
+        switch (key)
         {
-            printf("Tecla: %c\n", key);
+        case 'A':
+            gpio_put(RED_LED, 1);
+            sleep_ms(1000);
+            gpio_put(RED_LED, 0);
+            break;
+        case 'B':
+            gpio_put(GREEN_LED, 1);
+            sleep_ms(1000);
+            gpio_put(GREEN_LED, 0);
+            break;
+        case 'C':
+            gpio_put(BLUE_LED, 1);
+            sleep_ms(1000);
+            gpio_put(BLUE_LED, 0);
+            break;
         }
+        // FIM DO TESTE
+
         sleep_ms(10);
     }
     return 0;
