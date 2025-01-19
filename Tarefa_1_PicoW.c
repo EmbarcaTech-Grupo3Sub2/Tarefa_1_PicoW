@@ -84,6 +84,30 @@ char get_key()
         return ' ';
 }
 
+void action(char key){
+    switch (key)
+    {
+    case 'A':
+        printf("acende led vermelho\n");
+        //chama função que acende o led vermelho
+        break;
+    
+    case 'B':
+        printf("acende led azul\n");
+        //chama função que acende o led azul
+        break;
+    case 'C':
+        printf("acende led verde\n");
+        //chama função que acende o led verde
+        break;
+    case 'D':
+        printf("acende os tres\n");
+        //chama a função que acende os três leds
+        break;
+    
+    }
+}
+
 void led_red(){
     gpio_put(GREEN_LED, 0);
     gpio_put(BLUE_LED, 0);
@@ -119,6 +143,7 @@ void leds_all_on(){
 }
 
 
+
 int main()
 {
     stdio_init_all();
@@ -126,14 +151,17 @@ int main()
 
     while (1)
     {
-        char key = get_key();
 
+        
+        char key = get_key();
+        action(get_key());
         if (key == 'A')
         {
             gpio_put(BUZZER, 1);
             sleep_ms(200);
             gpio_put(BUZZER, 0);
         }
+
 
         sleep_ms(100);
     }
