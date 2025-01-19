@@ -16,11 +16,12 @@ As estratégias de acionamento dos LEDs e de geração do sinal elétrico do buz
 ## Como compilar
 Para compilar o programa, utilize um compilador C, e rode o código para geração do arquivo `.uf2` e `.elf`. Segue um exemplo:
 
-![botao compilador](photos_readme\compilador.png)
+![botao compilador](photos_readme/compilador.png)
 
 ## Como executar
 Após a compilação, execute o simulador Wokwi clicando no arquivo `diagram.json`:
-![circuito](photos_readme\circuito.png)
+
+![circuito](photos_readme/circuito.png)
 
 
 Para testar, só clicar no play e explorar o circutio.
