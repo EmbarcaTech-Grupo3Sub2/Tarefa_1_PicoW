@@ -128,9 +128,38 @@ int main()
             gpio_put(BUZZER, 1);
             sleep_ms(200);
             gpio_put(BUZZER, 0);
+                    sleep_ms(100);
+
+        }
+        
+        else if (key == 'B')
+        {
+          led_red();
         }
 
-        sleep_ms(100);
+       
+
+        else if (key == 'C')
+        {
+          led_blue();
+        }
+
+         else if (key == 'D')
+        {
+          led_green();
+        }
+
+         else if (key == '#')
+        {
+            printf("\nDesligando o Led.");
+          leds_all_off();
+        }
+
+         else if (key == '*')
+        {
+            printf("Acendendo todos os Led's.");
+          leds_all_on();
+        }
     }
 
     return 0;
