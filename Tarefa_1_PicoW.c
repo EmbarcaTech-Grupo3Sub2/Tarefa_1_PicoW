@@ -88,31 +88,36 @@ void led_red(){
     gpio_put(GREEN_LED, 0);
     gpio_put(BLUE_LED, 0);
     gpio_put(RED_LED, 1);
+    sleep(2000);
+    gpio_put(RED_LED, 0);
 }
 
 void led_green(){
     gpio_put(GREEN_LED, 1);
     gpio_put(BLUE_LED, 0);
     gpio_put(RED_LED, 0);
+    sleep(2000);
+    gpio_put(GREEN_LED, 0);
 }
 
 void led_blue(){
     gpio_put(GREEN_LED, 0);
     gpio_put(BLUE_LED, 1);
     gpio_put(RED_LED, 0);
+    sleep(2000);
+    gpio_put(BLUE_LED, 0);
 }
 
 void leds_all_on(){
     gpio_put(GREEN_LED, 1);
     gpio_put(BLUE_LED, 1);
     gpio_put(RED_LED, 1);
-}
-
-void leds_all_off(){
+    sleep(2000);
     gpio_put(GREEN_LED, 0);
     gpio_put(BLUE_LED, 0);
     gpio_put(RED_LED, 0);
 }
+
 
 int main()
 {
