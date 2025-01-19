@@ -2,20 +2,19 @@
 #include <stdio.h>
 
 #define RED_LED 13
-#define GREEN_LED 11    // Definição dos LEDs
+#define GREEN_LED 11 // Definição dos LEDs
 #define BLUE_LED 12
 
-#define BUZZER 21       // Definição do buzzer
+#define BUZZER 21 // Definição do buzzer
 
-const uint col[4] = {4, 3, 2, 1};   // Definição dos pinos do teclado
-const uint rw[4] = {8, 7, 6, 5};    // com as portas GPIO
+const uint col[4] = {4, 3, 2, 1}; // Definição dos pinos do teclado
+const uint rw[4] = {8, 7, 6, 5};  // com as portas GPIO
 
 const char keysMap[4][4] = {
     {'1', '2', '3', 'A'},
     {'4', '5', '6', 'B'},
     {'7', '8', '9', 'C'},
-    {'*', '0', '#', 'D'}
-};  
+    {'*', '0', '#', 'D'}};
 
 char lastKey = ' '; // última tecla pressionada
 const char keysFlatMap[16] = {
@@ -84,31 +83,36 @@ char get_key()
         return ' ';
 }
 
-void led_red(){
+void led_red()
+{
     gpio_put(GREEN_LED, 0);
     gpio_put(BLUE_LED, 0);
     gpio_put(RED_LED, 1);
 }
 
-void led_green(){
+void led_green()
+{
     gpio_put(GREEN_LED, 1);
     gpio_put(BLUE_LED, 0);
     gpio_put(RED_LED, 0);
 }
 
-void led_blue(){
+void led_blue()
+{
     gpio_put(GREEN_LED, 0);
     gpio_put(BLUE_LED, 1);
     gpio_put(RED_LED, 0);
 }
 
-void leds_all_on(){
+void leds_all_on()
+{
     gpio_put(GREEN_LED, 1);
     gpio_put(BLUE_LED, 1);
     gpio_put(RED_LED, 1);
 }
 
-void leds_all_off(){
+void leds_all_off()
+{
     gpio_put(GREEN_LED, 0);
     gpio_put(BLUE_LED, 0);
     gpio_put(RED_LED, 0);
@@ -120,47 +124,49 @@ int main()
     setup_pins();
 
     while (1)
-    {
-        char key = get_key();
+{
+    char key = get_key();
 
-        if (key == 'A')
-        {
+    switch (key)
+    {
+        case 'A':
             gpio_put(BUZZER, 1);
             sleep_ms(200);
             gpio_put(BUZZER, 0);
-                    sleep_ms(100);
+            sleep_ms(100);
+            printf("\n~~ Acionando buzzer.. ~~\n\n");
+            break;
 
-        }
-        
-        else if (key == 'B')
-        {
-          led_red();
-        }
+        case 'B':
+            printf("\n~~ Acionando Led Vermelho. ~~\n\n");
+            led_red();
+            break;
 
-       
+        case 'C':
+            printf("\n~~ Acionando Led Azul. ~~\n\n");
+            led_blue();
+            break;
 
-        else if (key == 'C')
-        {
-          led_blue();
-        }
+        case 'D':
+            printf("\n~~ Acionando Led Verde. ~~\n\n");
+            led_green();
+            break;
 
-         else if (key == 'D')
-        {
-          led_green();
-        }
+        case '#':
+            leds_all_off();
+            printf("\n~~ Desligando o Led. ~~\n\n");
+            break;
 
-         else if (key == '#')
-        {
-            printf("\nDesligando o Led.");
-          leds_all_off();
-        }
+        case '*':
+            printf("\n~~ Acendendo todos os Led's. ~~\n");
+            leds_all_on();
+            break;
 
-         else if (key == '*')
-        {
-            printf("Acendendo todos os Led's.");
-          leds_all_on();
-        }
+        default:
+            break;
     }
+}
+
 
     return 0;
-} 
+}
