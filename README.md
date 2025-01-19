@@ -40,6 +40,7 @@ Para testar, só clicar no play e explorar o circutio.
 - Wokwi conectado no VS Code
 
 ## Desenvolvedores
+Equipe 2 - Grupo 3 - EmbarcaTech
 - [Lucas Luige](https://github.com/lluigecm)
 - [Evelyn Suzarte](https://github.com/Evelynsuzarte)
 - [Caio Natividade](https://github.com/CaioNatividade)
